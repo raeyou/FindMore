@@ -6,6 +6,10 @@ body {
   font: 16px Arial;  
 }
 
+title {
+	font: Arial;
+   }
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
