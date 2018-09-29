@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 * {
@@ -185,13 +184,21 @@ var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", 
 autocomplete(document.getElementById("myInput"), colleges);
 </script>
 
+<div id="map" style="width:400px;height:400px;background:yellow"></div>
+
+<script>
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(35.958683, -83.924590),
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASSwfxQh-A7PvQ5ITQxPmcn3EXY7jM87I&callback=myMap"></script>
+
+
 </body>
 </html>
-=======
-	<title>FindMore</title>
-</head>
-<body>
-	
-</body>
-</html>
->>>>>>> 7b51af3802965e8287352299449d273b7601df53
