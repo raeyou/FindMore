@@ -15,6 +15,7 @@
       </div>
       <input type="submit" value="Search">
     </form>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASSwfxQh-A7PvQ5ITQxPmcn3EXY7jM87I&"></script>
 
     <script>
       function autocomplete(inp, arr) {
@@ -177,7 +178,9 @@
         var marker = new google.maps.Marker({
           position: latlng,
           map: map,
-          title: 'You are here'
+          title: 'You are here',
+          icon: '/home/sai/FindMore/images/pointer.svg'
+
         });
 
 
@@ -198,8 +201,8 @@
 
 
 
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASSwfxQh-A7PvQ5ITQxPmcn3EXY7jM87I&"></script>
-
+   <!--<script async defer src="../VOLhacks2018API></script>
+   -->
 
 
  </center>
