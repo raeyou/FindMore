@@ -3,9 +3,6 @@
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="style.css" type="text/css" rel="stylesheet">
 
-
-
-
 <body>
   <center>
     <h2 style="font-family:helvetica; font-size:60px;">Find<span style="color:#2FF2DC;">More</span></h2>
@@ -14,9 +11,9 @@
     <br /><br /><br />
 
     <!--Make sure the form has the autocomplete function switched off:-->
-    <form autocomplete="off" action="javascript:find(myCollege);">
+    <form autocomplete="off">
       <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myCollege" placeholder="Search College">
+        <input id="myInput" type="text" name="myCollege" placeholder="Search College" onclick="find()">
       </div>
     
 
@@ -121,7 +118,7 @@
   });
 }
 
-/*An array containing all the country names in the world:*/
+/*An array containing some colleges in the us:*/
 var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "University of Alabama", "Georgia Institute of Technology", "University of South Carolina", "Massachusetts Institute of Technology"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
@@ -135,12 +132,12 @@ var coll5 = {name:"University of South Carolina", x:"33.9993292", y:"-81.0245957
 var coll6 = {name:"Massachusetts Institute of Technology", x:"42.360091", y:"-71.09415999999999"}
 var collegeLoc =[coll1, coll2, coll3, coll4, coll5, coll6];
 
-function find(z) {
+function find() {
 
-
+  var input1 = document.getElementById("myInput").value;
   var i;
   for (i = 0; i < collegeLoc.length; i++) {
-    if (z === collegeLoc[i].name) {
+    if (input1 === collegeLoc[i].name) {
       search(collegeLoc[i].x, collegeLoc[i].y);
     }
     else {
