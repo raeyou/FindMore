@@ -83,7 +83,7 @@
         });
       }
 
-      var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "University of Alabama", "Georgia Institute of Technology", "University of South Carolina", "Massachusetts Institute of Technology"];
+      var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "University of Alabama", "Georgia Institute of Technology", "University of South Carolina", "Massachusetts Institute of Technology", "Stanford University", "Harvard University", "University of California - Berkeley", "Rutgers University", "University of Michigan", "Rutgers University", "University of Michigan", "University of Kentucky", "Tulane University", "Belmont University", "University of Florida", "American University", "University of Arizona", "University of Washington", "Yale University", "Carnegie Mellon University"];
 
       autocomplete(document.getElementById("myInput"), colleges);
 
@@ -93,13 +93,27 @@
       var coll4 = {name:"Georgia Institute of Technology", x:"33.2140233", y:"-87.53914179999998"}
       var coll5 = {name:"University of South Carolina", x:"33.9993292", y:"-81.02459579999999"}
       var coll6 = {name:"Massachusetts Institute of Technology", x:"42.360091", y:"-71.09415999999999"}
-      var collegeLoc =[coll1, coll2, coll3, coll4, coll5, coll6];
+      var coll7 = {name:"Stanford University", x:"37.4274745", y:"-122.16971899999999"}
+      var coll8 = {name:"Harvard University", x:"42.3770029", y:"-71.11666009999999"}
+      var coll9 = {name:"University of California - Berkeley", x:"37.8718992", y:"-122.25853990000002"}
+      var coll10 = {name:"Rutgers University", x:"40.47934019999999", y:"-74.43322849999998"}
+      var coll11 = {name:"University of Michigan", x:"42.2780436", y:"-83.73822410000002"}
+      var coll12 = {name:"University of Kentucky", x:"38.0306511", y:"-84.50396969999997"}
+      var coll13 = {name:"Tulane University", x:"29.9403477", y:"-90.12072790000002"}
+      var coll14 = {name:"Belmont University", x:"36.1328981", y:"-86.79406990000001"}
+      var coll15 = {name:"University of Florida", x:"29.6436325", y:"-82.35493020000001"}
+      var coll16 = {name:"American University", x:"38.9374948", y:"-77.08880290000002"}
+      var coll17 = {name:"University of Arizona", x:"32.2318851", y:"-110.95010939999997"}
+      var coll18 = {name:"University of Washington", x:"47.65533509999999", y:"-122.30351989999997"}
+      var coll19 = {name:"Yale University", x:"41.3163244", y:"-72.92234309999998"}
+      var coll20 = {name:"Carnegie Mellon University", x:"40.4428081", y:"-79.94301280000002"}
+      var collegeLoc =[coll1, coll2, coll3, coll4, coll5, coll6, coll7, coll8, coll9, coll10, coll11, coll12, coll13, coll14, coll15, coll16, coll17, coll18, coll19, coll20];
 
       function find() {
         var i;
         for (i = 0; i < collegeLoc.length; i++) {
           if (document.getElementById('myInput').value === collegeLoc[i].name) {
-            search(collegeLoc[i].x, collegeLoc[i].y)
+            search(collegeLoc[i].x, collegeLoc[i].y);
             return 0;
           }
         }
