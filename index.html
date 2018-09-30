@@ -5,67 +5,70 @@
 
 
 
+
 <body>
-<center>
-<h2 style="font-family:helvetica; font-size:60px;">Find<span style="color:#2FF2DC;">More</span></h2>
+  <center>
+    <h2 style="font-family:helvetica; font-size:60px;">Find<span style="color:#2FF2DC;">More</span></h2>
 
 
-<br /><br /><br />
+    <br /><br /><br />
 
-<!--Make sure the form has the autocomplete function switched off:-->
-<form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Search College">
-  </div>
-  <input type="submit" value="Search">
-</form>
+    <!--Make sure the form has the autocomplete function switched off:-->
+    <form autocomplete="off" action="javascript:find(myCollege);">
+      <div class="autocomplete" style="width:300px;">
+        <input id="myInput" type="text" name="myCollege" placeholder="Search College">
+      </div>
+    
 
-<script>
-function autocomplete(inp, arr) {
+    <input type="submit" value="Search">
+    </form>
+
+    <script>
+      function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-      /*close any already open lists of autocompleted values*/
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      /*create a DIV element that will contain the items (values):*/
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      /*append the DIV element as a child of the autocomplete container:*/
-      this.parentNode.appendChild(a);
-      /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-          /*create a DIV element for each matching element:*/
-          b = document.createElement("DIV");
-          /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-          /*execute a function when someone clicks on the item value (DIV element):*/
-          b.addEventListener("click", function(e) {
-              /*insert the value for the autocomplete text field:*/
-              inp.value = this.getElementsByTagName("input")[0].value;
+    var a, b, i, val = this.value;
+    /*close any already open lists of autocompleted values*/
+    closeAllLists();
+    if (!val) { return false;}
+    currentFocus = -1;
+    /*create a DIV element that will contain the items (values):*/
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    /*append the DIV element as a child of the autocomplete container:*/
+    this.parentNode.appendChild(a);
+    /*for each item in the array...*/
+    for (i = 0; i < arr.length; i++) {
+      /*check if the item starts with the same letters as the text field value:*/
+      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        /*create a DIV element for each matching element:*/
+        b = document.createElement("DIV");
+        /*make the matching letters bold:*/
+        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += arr[i].substr(val.length);
+        /*insert a input field that will hold the current array item's value:*/
+        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+        /*execute a function when someone clicks on the item value (DIV element):*/
+        b.addEventListener("click", function(e) {
+          /*insert the value for the autocomplete text field:*/
+          inp.value = this.getElementsByTagName("input")[0].value;
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
-          });
-          a.appendChild(b);
-        }
+            });
+        a.appendChild(b);
       }
+    }
   });
   /*execute a function presses a key on the keyboard:*/
   inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
+    var x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
         /*If the arrow DOWN key is pressed,
         increase the currentFocus variable:*/
         currentFocus++;
@@ -85,7 +88,7 @@ function autocomplete(inp, arr) {
           if (x) x[currentFocus].click();
         }
       }
-  });
+    });
   function addActive(x) {
     /*a function to classify an item as "active":*/
     if (!x) return false;
@@ -114,15 +117,38 @@ function autocomplete(inp, arr) {
   }
   /*execute a function when someone clicks in the document:*/
   document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
+    closeAllLists(e.target);
   });
 }
 
 /*An array containing all the country names in the world:*/
-var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "Middle Tennessee State University", "University of Alabama - Tuscaloosa", "Georgia Institute of Technology", "University of South Carolina", "Harvard University", "Massachusetts Institute of Technology"];
+var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "University of Alabama", "Georgia Institute of Technology", "University of South Carolina", "Massachusetts Institute of Technology"];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), colleges);
+
+var coll1 = {name:"Vanderbilt University", x:"36.1447034", y:"-86.80265509999998"}
+var coll2 = {name:"University of Tennessee - Knoxville", x:"35.9544013", y:"-83.92945639999999"}
+var coll3 = {name:"University of Alabama", x:"33.2140233", y:"-87.53914179999998"}
+var coll4 = {name:"Georgia Institute of Technology", x:"33.2140233", y:"-87.53914179999998"}
+var coll5 = {name:"University of South Carolina", x:"33.9993292", y:"-81.02459579999999"}
+var coll6 = {name:"Massachusetts Institute of Technology", x:"42.360091", y:"-71.09415999999999"}
+var collegeLoc =[coll1, coll2, coll3, coll4, coll5, coll6];
+
+function find(z) {
+
+
+  var i;
+  for (i = 0; i < collegeLoc.length; i++) {
+    if (z === collegeLoc[i].name) {
+      search(collegeLoc[i].x, collegeLoc[i].y);
+    }
+    else {
+      getLocation();
+    }
+  }
+}
+
 </script>
 
 <p>or</p>
@@ -132,75 +158,72 @@ autocomplete(document.getElementById("myInput"), colleges);
 <p id="demo"></p>
 
 <script>
-var x = document.getElementById("demo");
+  var x = document.getElementById("demo");
 
-function getLocation() {
+  function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+      x.innerHTML = "Geolocation is not supported by this browser.";
     }
-}
+  }
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-  search(position.coords.latitude,position.coords.longitude);
-    events();
-}
+  function showPosition(position) {
+    search(position.coords.latitude,position.coords.longitude);
+  }
 
 </script>
 
-<div id="map" style="width:600px;height:400px;background:white"></div>
+<div id="map" style="width:1000px;height:600px;background:white;"></div>
 
 <script>
 
-var ev1 = {name:"Lit party", x:"36.1447034", y:"-86.80265509999998"}
-var ev2 = {name:"Barbeque", x:"35.9544013", y:"-83.92945639999999"}
-var ev3 = {name:"Saxophone Club", x:"35.95150586367683", y:"-83.93164227523886"}
-var ev4 = {name:"Air hockey", x:"35.95228752286814", y:"-83.937792044854"}
-var ev5 = {name:"Taco Night", x:"35.95484088899484", y:"-83.93106721119767"}
-var ev6 = {name:"Hackathon", x:"35.95626517981751", y:"-83.92511485373763"}
-var ev7 = {name:"Swim Meet", x:"36.143854337489664", y:"-86.80487811561733"}
-var ev8 = {name:"Yoga", x:"36.14220816970762", y:"-86.80383956507256"}
-var ev9 = {name:"Family Dinner", x:"36.14579503829523", y:"-86.80181396161032"}
+  var ev1 = {name:"Lit party", x:"36.1447034", y:"-86.80265509999998"}
+  var ev2 = {name:"Barbeque", x:"35.9544013", y:"-83.92945639999999"}
+  var ev3 = {name:"Saxophone Club", x:"35.95150586367683", y:"-83.93164227523886"}
+  var ev4 = {name:"Air hockey", x:"35.95228752286814", y:"-83.937792044854"}
+  var ev5 = {name:"Taco Night", x:"35.95484088899484", y:"-83.93106721119767"}
+  var ev6 = {name:"Hackathon", x:"35.95626517981751", y:"-83.92511485373763"}
+  var ev7 = {name:"Swim Meet", x:"36.143854337489664", y:"-86.80487811561733"}
+  var ev8 = {name:"Yoga", x:"36.14220816970762", y:"-86.80383956507256"}
+  var ev9 = {name:"Family Dinner", x:"36.14579503829523", y:"-86.80181396161032"}
 
-var event = [ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9];
+  var event = [ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9];
 
+  function myMap() {
 
+  }
 
-function search(x, y) {
+  function search(x, y) {
 
-var latlng = new google.maps.LatLng(x, y);
+    var latlng = new google.maps.LatLng(x, y);
 
-  var mapOptions = {
+    var mapOptions = {
       center: latlng,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP 
     }
-  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
     
     var marker = new google.maps.Marker({
-    position: latlng,
-    map: map,
-    title: 'You are here'
+      position: latlng,
+      map: map,
+      title: 'You are here'
     });
-    
     
     
     var i;
-  for (i = 0; i < event.length; i++) {
+    for (i = 0; i < event.length; i++) {
 
      latlng = new google.maps.LatLng(event[i].x, event[i].y);
 
-   marker = new google.maps.Marker({
-    position: latlng,
-    map: map,
-    title: event[i].name
+     marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title: event[i].name
     });
-  }
-    
-}
+   }
+ }
 
 </script>
 
@@ -211,5 +234,6 @@ var latlng = new google.maps.LatLng(x, y);
 
 
 </center>
+<p align="right"> Created by Sithara Samudrala, Sai Thatigotla, and Young-Rae Kim at VolHacks 2018 </p>
 </body>
 </html>
