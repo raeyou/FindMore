@@ -7,7 +7,7 @@
   <center>
     <h2 style="font-family:helvetica; font-size:60px;">Find<span style="color:#2FF2DC;">More</span></h2>
 
-    <br /><br /><br />
+    <br />
 
     <form autocomplete="off" action="javascript:find();">
       <div class="autocomplete" style="width:300px;">
@@ -175,12 +175,12 @@
         }
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+
         var marker = new google.maps.Marker({
           position: latlng,
           map: map,
-          title: 'You are here',
-          icon: '/home/sai/FindMore/images/pointer.svg'
-
+          icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+          title: 'You are here'
         });
 
 
@@ -192,6 +192,7 @@
          marker = new google.maps.Marker({
           position: latlng,
           map: map,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
           title: event[i].name
         });
        }
@@ -201,8 +202,7 @@
 
 
 
-   <!--<script async defer src="../VOLhacks2018API></script>
-   -->
+   <script async defer src="../VOLhacks2018API"></script>
 
 
  </center>
