@@ -7,7 +7,7 @@
   <center>
     <h2 style="font-family:helvetica; font-size:60px;">Find<span style="color:#2FF2DC;">More</span></h2>
 
-    <br /><br /><br />
+    <br />
 
     <form autocomplete="off" action="javascript:find();">
       <div class="autocomplete" style="width:300px;">
@@ -174,9 +174,11 @@
         }
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+
         var marker = new google.maps.Marker({
           position: latlng,
           map: map,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
           title: 'You are here'
         });
 
@@ -189,6 +191,7 @@
          marker = new google.maps.Marker({
           position: latlng,
           map: map,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
           title: event[i].name
         });
        }
@@ -196,11 +199,7 @@
 
    </script>
 
-
-
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASSwfxQh-A7PvQ5ITQxPmcn3EXY7jM87I&"></script>
-
-
 
  </center>
  <p align="right"> Created by Sithara Samudrala, Sai Thatigotla, and Young-Rae Kim at VolHacks 2018 </p>
