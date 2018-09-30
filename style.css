@@ -3,12 +3,8 @@
 }
 
 body {
-  font: 16px Arial;  
+  font: 16px Arial
 }
-
-title {
-	font: Arial;
-   }
 
 .autocomplete {
   /*the container must be positioned relative:*/
@@ -63,3 +59,4 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
+
