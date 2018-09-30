@@ -9,16 +9,9 @@
 
     <br /><br /><br />
 
-<<<<<<< HEAD
-    <!--Make sure the form has the autocomplete function switched off:-->
-    <form autocomplete="off">
-      <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myCollege" placeholder="Search College" onclick="find()">
-=======
     <form autocomplete="off" action="javascript:find();">
       <div class="autocomplete" style="width:300px;">
         <input id='myInput' type="text" name="myCollege" placeholder="Search College">
->>>>>>> 81e95cbf42983dc8f7e3eceb385b450e44a73263
       </div>
       <input type="submit" value="Search">
     </form>
@@ -89,110 +82,6 @@
           closeAllLists(e.target);
         });
       }
-<<<<<<< HEAD
-    }
-  }
-  /*execute a function when someone clicks in the document:*/
-  document.addEventListener("click", function (e) {
-    closeAllLists(e.target);
-  });
-}
-
-/*An array containing some colleges in the us:*/
-var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "University of Alabama", "Georgia Institute of Technology", "University of South Carolina", "Massachusetts Institute of Technology"];
-
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), colleges);
-
-var coll1 = {name:"Vanderbilt University", x:"36.1447034", y:"-86.80265509999998"}
-var coll2 = {name:"University of Tennessee - Knoxville", x:"35.9544013", y:"-83.92945639999999"}
-var coll3 = {name:"University of Alabama", x:"33.2140233", y:"-87.53914179999998"}
-var coll4 = {name:"Georgia Institute of Technology", x:"33.2140233", y:"-87.53914179999998"}
-var coll5 = {name:"University of South Carolina", x:"33.9993292", y:"-81.02459579999999"}
-var coll6 = {name:"Massachusetts Institute of Technology", x:"42.360091", y:"-71.09415999999999"}
-var collegeLoc =[coll1, coll2, coll3, coll4, coll5, coll6];
-
-function find() {
-
-  var input1 = document.getElementById("myInput").value;
-  var i;
-  for (i = 0; i < collegeLoc.length; i++) {
-    if (input1 === collegeLoc[i].name) {
-      search(collegeLoc[i].x, collegeLoc[i].y);
-    }
-    else {
-      getLocation();
-    }
-  }
-}
-
-</script>
-
-<p>or</p>
-
-<input type="submit" onclick="getLocation()" value="Use My Location">
-
-<p id="demo"></p>
-
-<script>
-  var x = document.getElementById("demo");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function showPosition(position) {
-    search(position.coords.latitude,position.coords.longitude);
-  }
-
-</script>
-
-<div id="map" style="width:1000px;height:600px;background:white;"></div>
-
-<script>
-
-  var ev1 = {name:"Lit party", x:"36.1447034", y:"-86.80265509999998"}
-  var ev2 = {name:"Barbeque", x:"35.9544013", y:"-83.92945639999999"}
-  var ev3 = {name:"Saxophone Club", x:"35.95150586367683", y:"-83.93164227523886"}
-  var ev4 = {name:"Air hockey", x:"35.95228752286814", y:"-83.937792044854"}
-  var ev5 = {name:"Taco Night", x:"35.95484088899484", y:"-83.93106721119767"}
-  var ev6 = {name:"Hackathon", x:"35.95626517981751", y:"-83.92511485373763"}
-  var ev7 = {name:"Swim Meet", x:"36.143854337489664", y:"-86.80487811561733"}
-  var ev8 = {name:"Yoga", x:"36.14220816970762", y:"-86.80383956507256"}
-  var ev9 = {name:"Family Dinner", x:"36.14579503829523", y:"-86.80181396161032"}
-
-  var event = [ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9];
-
-  function myMap() {
-
-  }
-
-  function search(x, y) {
-
-    var latlng = new google.maps.LatLng(x, y);
-
-    var mapOptions = {
-      center: latlng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP 
-    }
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    
-    var marker = new google.maps.Marker({
-      position: latlng,
-      map: map,
-      title: 'You are here'
-    });
-    
-    
-    var i;
-    for (i = 0; i < event.length; i++) {
-=======
->>>>>>> 81e95cbf42983dc8f7e3eceb385b450e44a73263
 
       var colleges = ["Vanderbilt University", "University of Tennessee - Knoxville", "University of Alabama", "Georgia Institute of Technology", "University of South Carolina", "Massachusetts Institute of Technology"];
 
@@ -210,11 +99,10 @@ function find() {
         var i;
         for (i = 0; i < collegeLoc.length; i++) {
           if (document.getElementById('myInput').value === collegeLoc[i].name) {
-            search(collegeLoc[i].x, collegeLoc[i].y)
-            return 0;
+            search(collegeLoc[i].x, collegeLoc[i].y);
+            i = collegeLoc.length;
           }
         }
-            getLocation();
       }
 
     </script>
